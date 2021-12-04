@@ -1,0 +1,40 @@
+# /opt/nprox/Caddyfile
+# this is for [@hackclub/nprox](https://github.com/hackclub/nprox])
+
+
+# Commie
+www.zephyrnet.hackclub.com {
+	redir https://zephyrnet.hackclub.com{uri}
+}
+
+*.zephyrnet.hackclub.com, zephyrnet.hackclub.com {
+	reverse_proxy http://10.101.252.250 {
+		header_up X-Forwarded-Proto http
+		header_up X-Forwarded-Host {host}
+		header_up X-Url-Scheme {scheme}
+		header_up X-Real-IP {remote}
+	}
+	tls {
+		#dns dnsimple
+		dns lego_deprecated dnsimple
+	}
+}
+
+
+# Tilde
+www.tilde.hackclub.com {
+	redir https://tilde.hackclub.com{uri}
+}
+
+*.tilde.hackclub.com, tilde.hackclub.com {
+	reverse_proxy http://10.101.13.164 {
+		header_up X-Forwarded-Proto http
+		header_up X-Forwarded-Host {host}
+		header_up X-Url-Scheme {scheme}
+		header_up X-Real-IP {remote}
+	}
+	tls {
+		#dns dnsimple
+		dns lego_deprecated dnsimple
+	}
+}
