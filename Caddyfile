@@ -5,6 +5,10 @@
 # Commie
 www.zephyrnet.hackclub.com {
 	redir https://zephyrnet.hackclub.com{uri}
+	tls {
+		#dns dnsimple
+		dns lego_deprecated dnsimple
+	}
 }
 
 *.zephyrnet.hackclub.com, zephyrnet.hackclub.com {
@@ -24,6 +28,10 @@ www.zephyrnet.hackclub.com {
 # Tilde
 www.tilde.hackclub.com {
 	redir https://tilde.hackclub.com{uri}
+	tls {
+		#dns dnsimple
+		dns lego_deprecated dnsimple
+	}
 }
 
 *.tilde.hackclub.com, tilde.hackclub.com {
